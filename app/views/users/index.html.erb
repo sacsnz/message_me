@@ -1,0 +1,32 @@
+<h4 class="ui center aligned large icon header">
+  <i class="circular red paper plane outline icon"></i>
+    All MessageMe Users
+</h4>
+<div class="ui two column grid ">
+  <div class="four wide column">
+  </div>
+  <div class="eight wide column">
+    <div class="ui aligned list">
+      <div align="center">
+        <%= will_paginate @collection, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+      </div>
+      <% @users.each do |user| %>
+        <div class="ui fluid raised card">
+          <div class="item">
+            <% if logged_in? and current_user.admin? %>
+              <div class="right floated content">
+                <%= link_to "Delete this user", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user and all their articles?"} %>
+              </div>
+            <% end %>
+          <div class="header"><%= link_to user.username, edit_user_path(user) %></div>
+            <%= user.name %>
+          </div>
+        </div>
+    <% end %>
+      <div align="center">
+        <%= will_paginate @collection, renderer: WillPaginateSemanticUi::ActionView::Renderer %>
+      </div>
+    </div>
+  </div>
+</div>
+ 

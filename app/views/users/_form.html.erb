@@ -1,0 +1,53 @@
+<%= render 'shared/errors', obj:@user %>
+
+  <div class="ui fluid raised card">
+    <div class="ui padded grid">
+      <div class="column">
+
+      <%= form_for(@user, :html => {class: "ui form"}) do |f| %>
+        <div class="field">
+        <%= f.label :username %>
+          <div class="ui left icon input">
+            <%= f.text_field :username, placeholder: "Enter username" %>
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :name %>
+          <div class="ui left icon input">
+            <%= f.text_field :name, placeholder: 'Enter name' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :age %>
+          <div class="ui left icon input">
+            <%= f.number_field :age, placeholder: 'Enter age' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :email %>
+          <div class="ui left icon input">
+            <%= f.email_field :email, placeholder: 'Enter email address' %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :password %>
+          <div class="ui left icon input">
+            <%= f.password_field :password, placeholder: 'Enter password' %>
+          </div>
+        </div>
+        <% if logged_in? and current_user.admin? %>
+          <div class="field">
+            <%= f.label :admin %>
+              <div class="ui checkbox input">
+                <%= f.check_box :admin %>
+          </div>
+        <% end %>
+        <div> 
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: "ui red submit button") %>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div> 

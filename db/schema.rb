@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_050054) do
+ActiveRecord::Schema.define(version: 2019_10_05_105210) do
 
   create_table "messages", force: :cascade do |t|
     t.string "body"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_02_050054) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.boolean "online", default: false
   end
 
 end
