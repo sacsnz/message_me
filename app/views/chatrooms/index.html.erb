@@ -4,17 +4,11 @@
 </h4>
 
 
-<div class="ui two column grid">
+<div class="ui two column stackable grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
       <h4 align="center" class="ui header block">Chatroom</h4>
-      <div class="content" id="messages">
-        <div class="ui feed" id="message-container">
-          
-            <%= render @messages %>
-        </div>
-      </div>
-        <div class="extra content">
+       <div class="extra content">
           <%= form_for(@message, html: {class: "ui reply form"}, url: message_path, remote: true) do |f| %>
             <div class="field">
               <div class="ui fluid icon input focus">
@@ -24,13 +18,20 @@
             </div>
           <% end %>       
         </div>
+      <div class="content" id="messages">
+        <div class="ui feed" id="message-container">
+          
+            <%= render @messages %>
+        </div>
+      </div>
+       
       </div>
     
   </div>
   <div class="four wide column">
       <div class="ui fluid raised card chatbox">
-        <div class="content">
-          <div class="ui vertical menu">
+       
+            
 
           </div>
         </div>
